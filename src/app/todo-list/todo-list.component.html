@@ -1,0 +1,47 @@
+<div class="container">
+  <!-- <div class="col-xs-12">
+    <button class="btn btn-success"> New Task</button>
+  </div>
+ -->
+
+ <mat-card class="example-card">
+  <mat-card-title>Tasks</mat-card-title>
+
+    <mat-card-content *ngFor="let todo of todos">
+      <p >{{ todo.name}}</p>
+      <p>{{todo.description}}</p>
+      <button mat-button (click)="moveToInProgressList(todo)" > Start Task</button>
+      <mat-card-footer>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card-content>
+</mat-card>
+
+  <hr>
+<mat-card class="example-card">
+    <mat-card-title>In Progress</mat-card-title>
+
+      <mat-card-content *ngFor="let todo of InProgressList">
+        <p >{{ todo.name}}</p>
+        <p>{{todo.description}}</p>
+        <button mat-button (click)="moveToInTaskDone(todo)" > Start Task</button>
+        <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card-content>
+  </mat-card>
+
+  <hr>
+<mat-card class="example-card">
+  <mat-card-title>Done</mat-card-title>
+
+    <mat-card-content *ngFor="let todo of TaskDone">
+      <p >{{ todo.name}}</p>
+      <p>{{todo.description}}</p>
+      <button mat-button (click)="moveToTodos(todo)" > Start Task</button>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card-content>
+</mat-card>
+
